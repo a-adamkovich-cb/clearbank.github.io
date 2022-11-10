@@ -37,32 +37,30 @@ webhook: true
 #### Example Bacs Credit Payment Not Settled webhook request body
 
 ```json
-
-Example Webhook Request Body
-
 {
   "Type": "BacsCreditPaymentNotSettled",
-  "Version": 1,
+  "Version": 3,
   "Payload":
-   {
-    "DebtorInformation":
-        {
-          "AccountName": "CITYGUILDS",
-          "SortCode": "185008",
-          "AccountNumber": "13068013"
-              },
-    "CreditorInformation": {
-          "AccountName": "MREMPLOYEE",
-          "SortCode": "040400",
-          "AccountNumber": "00003179"
-           },
-    "Reference": "MANDATE281201",
-    "Amount": 1.05,
-    "ProcessingDate": "2018-12-31T00:00:00Z",
-    "TransactionCode": "99",
-    "Status": "ContraNotReceived",
-   },
-         "Nonce": 1559417504
+    {
+     "DebtorInformation": {
+       "AccountName": "UK Telecomms",
+       "SortCode": "778899",
+       "AccountNumber": "12121212"
+       },
+     "CreditorInformation":  {
+       "AccountName": "Jane Doe",
+       "SortCode": "445566",
+       "AccountNumber": "87654321"
+       },
+     "Reference": "JADA157QWNOV2018",
+     "Amount": 25.50,
+     "ProcessingDate": "2019-04-01T00:00:00Z",
+     "TransactionCode": "99",
+     "Status": "ContraNotReceived",
+     "Source": "Bacs",
+     "BacsTransactionId": "003c20e5-27d0-9e81-15a5-d60e96839349"
+                 }
+  "Nonce": 1559417504
 }
 ```
 #### Example webhook response

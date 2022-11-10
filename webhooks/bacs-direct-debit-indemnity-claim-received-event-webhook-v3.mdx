@@ -40,29 +40,33 @@ webhook: true
 
 ```json
 {
-  "Type": "BacsDirectDebitIndemnityClaimReceivedEventV3",
+  "Type": "BacsDirectDebitIndemnityClaimReceived",
   "Version": 3,
   "Payload":
-    {
-      "CreditorInformation": {
-			"AccountName": "UK Telecomms",
-			"SortCode": "778899",
-			"AccountNumber": "12121212"
+   {
+     "CreditorInformation":
+       {
+            "AccountName": "UK Telecomms",
+            "SortCode": "778899", (
+            "AccountNumber": "12121212" (
             },
-      "DebtorInformation": {
-			"AccountName": "Jane Doe",
-			"SortCode": "445566",
-			"AccountNumber": "87654321"
+     "DebtorInformation":
+            {
+             AccountName": "Jane Doe",
+             SortCode": "445566",
+             AccountNumber": "87654321"
             },
-      "Reference": "JADA157QWNOV2018",
-      "Amount": 25.50,
-      "ProcessingDate": "2019-01-01T00:00:00Z",
-      "TransactionCode": "17",
-      "Status": "Processed",
-      "ServiceUserNumber": "010203",
-      "ReasonCode": "5",
-      "SettlementDate": "2018-08-01T00:00:00Z",
-    }
+     "Reference": "JADA157QWNOV2018",
+     "Amount": 25.50,
+     "ProcessingDate": "2019-04-01T00:00:00Z",
+     "TransactionCode": "17",
+     "Status": "Processed",
+     "ServiceUserNumber": "010203",
+     "ReasonCode": "5",
+     "SettlementDate": "2018-08-01T00:00:00Z",
+     "Source": "Bacs",
+     "BacsTransactionId": "6df46804-65fd-3653-2a5f-a69631687d14"
+     },
   "Nonce": 499474413
 }
 ```

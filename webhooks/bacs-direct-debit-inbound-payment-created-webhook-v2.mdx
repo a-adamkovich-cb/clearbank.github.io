@@ -36,27 +36,29 @@ webhook: true
 
 ```json
 {
-	"Type": "BacsDirectDebitInboundPaymentCreated",
-	"Version": 2,
-	"Payload":
-	{
-	  "PayerInformation": {
-		"AccountName": "John Doe",
-		"SortCode": "112233",
-		"AccountNumber": "12345678"
-	  },
-	  "OriginatorInformation": {
-		"AccountName": "UK Telecomms",
-		"SortCode": "778899",
-		"AccountNumber": "12121212"
-		},
-	  "Amount": 13.75,
-	  "Reference": "1FQOVOJ0FS4JUL2018",
-	  "ProcessingDate": "2018-07-19T00:00:00Z",
-	  "ServiceUserNumber": "010203",
-	  "TransactionCode": "01"
-		}
-	"Nonce": 498572217
+   "Type": "BacsDirectDebitInboundPaymentCreated",
+   "Version": 2,
+   "Payload":
+      {
+    "PayerInformation": {
+       "AccountName": "John Doe",
+       "SortCode": "112233",
+       "AccountNumber": "12345678"
+       },
+    "OriginatorInformation": {
+       "AccountName": "UK Telecomms",
+       "SortCode": "778899",
+       "AccountNumber": "12121212"
+       },
+    "Amount": 13.75,
+    "Reference": "JODTR54PXZNOV2018",
+    "ProcessingDate": "2019-01-01T00:00:00Z",
+    "ServiceUserNumber": "010203",
+    "TransactionCode": "01",
+    "Source": "Bacs"
+    "BacsTransactionId": "d9c36960-53dc-fb00-8b4b-d35bdcd8ac03"
+   }
+   "Nonce": 498572217
 }
 ```
 #### Example webhook response

@@ -35,26 +35,31 @@ webhook: true
 
 ```json
 {
- "Type": "BacsCreditContraReceived",
- "Version": 1,
- "Payload": {
-   "ServiceUserInformation": {
-	  "AccountName": "UK Telecomms",
-	  "SortCode": "778899",
-	  "AccountNumber": "12121212"
-    },
-   "BeneficiaryDetails": {
-      "AccountName": "Jane Doe",
-      "SortCode": "445566",
-      "AccountNumber": "87654321"
-    },
-   "Reference": "JADA157QWNOV2018",
-   "Amount": 25.50,
-   "ProcessingDate": "2018-11-01T00:00:00Z",
-   "TransactionCode": "17",
-   "Status": "Processed"
- },
-   "Nonce": 2034827781
+  "Type": "BacsCreditContraReceived",
+  "Version": 3,
+  "Payload":
+     {
+       "ServiceUserInformation":
+       {
+            "AccountName": "UK Telecomms",
+            "SortCode": "778899",
+            "AccountNumber": "12121212"
+       },
+       "BeneficiaryDetails":
+       {
+            "AccountName": "Jane Doe",
+            "SortCode": "445566",
+            "AccountNumber": "87654321"
+       },
+      "Reference": "JADA157QWNOV2018",
+      "Amount": 25.50,
+      "ProcessingDate": "2019-04-01T00:00:00Z",
+      "TransactionCode": "17",
+      "Status": "Processed",
+      "Source": "Bacs",
+      "BacsTransactionId": "0cf25a7b-4c55-3452-d623-d22acc48320e"
+     },
+  "Nonce": 2034827781
 }
 ```
 #### Example webhook response

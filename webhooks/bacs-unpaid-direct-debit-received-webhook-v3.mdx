@@ -39,34 +39,38 @@ webhook: true
 ```json
 {
   "Type": "BacsUnpaidDirectDebitReceived",
-  "Version": 1,
+  "Version": 3,
   "Payload":
-    {
-      "CreditorInformation": {
-			"AccountName": "UK Telecomms",
-			"SortCode": "778899",
-			"AccountNumber": "12121212"
-            },
-      "DebtorInformation": {
-			"AccountName": "Jane Doe",
-			"SortCode": "445566",
-			"AccountNumber": "87654321"
-            },
-      "Reference": "JADA157QWNOV2018",
-      "Amount": 25.50,
-      "ProcessingDate": "2019-01-01T00:00:00Z",
-      "TransactionCode": "99",
-      "Status": "ContraNotReceived",
-      "ServiceUserNumber": "010203",
-      "ReasonCode": "5",
-    },
-      "Nonce": 2824827735
+   {
+     "CreditorInformation":
+      {
+        "AccountName": "NAMEOFORIGINATOR  ",
+        "SortCode": "601613",
+        "AccountNumber": "31926819"
+          },
+           "DebtorInformation":
+                   {
+                       "AccountName": "DEST ACCOUNT      ",
+                       "SortCode": "724000",
+                       "AccountNumber": "00000167"
+                       },
+            "Reference": "YGRBOXDJEPWRJQVNLF",
+            "Amount": 2.01,
+            "ProcessingDate": "2021-01-10T00:00:00Z",
+            "TransactionCode": "U7",
+            "Status": "Pending",
+            "ServiceUserNumber": "480642",
+            "ReasonCode": "0",
+            "Source": "Bacs",
+            "BacsTransactionId": "5e09a485-72a2-4acb-9c99-d2383870f96a"
+                        }
+         "Nonce": 1142018831
 }
 ```
 #### Example webhook response
 
 ```json
 {
-    "Nonce": 2824827735
+    "Nonce": 1142018831
 }
 ```

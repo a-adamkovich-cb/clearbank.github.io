@@ -35,27 +35,31 @@ webhook: true
 
 ```json
 {
-    "Type": "BacsDebitContraReceived",
-    "Version": 1,
-    "Payload":
-     {
-       "PayerInformation": {    
-			"AccountName": "Jane Doe",
-			"SortCode": "445566",
-			"AccountNumber": "87654321"
-       },
-       "OriginatorInformation": {
-			"AccountName": "UK Telecomms",
-			"SortCode": "778899", (
-			"AccountNumber": "12121212"
-       },
-	   "Reference": "JADA157QWNOV2018",
-       "Amount": 25.50,
-       "ProcessingDate": "2019-01-03T00:00:00Z",
-       "TransactionCode": "99",
-       "Status": "Processed",
-     },
-    "Nonce": 1579417909
+   "Type": "BacsDebitContraReceived",
+   "Version": 3,
+   "Payload":
+    {
+     "PayerInformation":
+        {
+            "AccountName": "Jane Doe",
+            "SortCode": "445566",
+            "AccountNumber": "87654321"
+               },
+             "OriginatorInformation":
+                  {
+                     "AccountName": "UK Telecomms",
+                     "SortCode": "778899",
+                     "AccountNumber": "12121212"
+                             },
+                 "Reference": "JADA157QWNOV2018",
+                 "Amount": 25.50,
+                 "ProcessingDate": "2019-04-01T00:00:00Z",
+                 "TransactionCode": "99",
+                 "Status": "Processed",
+                 "Source": "Bacs",
+                 "BacsTransactionId": "daebbeef-4adc-069e-5e9b-79646d893331"
+                      },
+           "Nonce": 1579417909
 }
 ```
 #### Example webhook response

@@ -39,35 +39,39 @@ webhook: true
 
 ```json
 {
-   "Type": "BacsUnappliedCreditReceived",
-   "Version": 1,
-   "Payload":
-     {
-      "CreditorInformation": {
-			"AccountName": "UK Telecomms",
-			"SortCode": "778899",
-			"AccountNumber": "12121212"
-            },
-      "DebtorInformation": {
-            "AccountName": "Jane Doe",
-            "SortCode": "445566",
-            "AccountNumber": "87654321"
-            },
-      "Reference": "JADA157QWNOV2018",
-      "Amount": 25.50,
-      "ProcessingDate": "2018-08-01T00:00:00Z",
-      "TransactionCode": "17",
-      "Status": "ContraNotReceived",
-      "ServiceUserNumber": "010203",
-      "ReasonCode": "5"
-     }
-   "Nonce": 2871012908
+  "Type": "BacsUnappliedCreditReceived",
+  "Version": 3,
+  "Payload":
+    { 
+      "CreditorInformation":
+        {
+              "AccountName": "DEST ACCOUNT      ",
+              "SortCode": "724000",
+              "AccountNumber": "00001090"
+                  },
+            "DebtorInformation":
+                {
+                      "AccountName": "NAMEOFORIGINATOR  ",
+                      "SortCode": "601613", (
+                       "AccountNumber": "31926819"
+                     },
+              "Reference": "LATIZHAPMDULOUBXAX",
+              "Amount": 1.05,
+              "ProcessingDate": "2021-01-10T00:00:00Z",
+              "TransactionCode": "RA",
+              "Status": "Pending",
+              "ServiceUserNumber": "229816",
+              "ReasonCode": "C",
+              "Source": "Bacs",
+              "BacsTransactionId": "69099368-381a-4578-a066-e16bab86002a"
+                         },
+          "Nonce": 1077041584
 }
 ```
 #### Example webhook response
 
 ```json
 {
-    "Nonce": 2871012908
+    "Nonce": 1077041584
 }
 ```

@@ -38,37 +38,44 @@ webhook: true
 
 ```json
 {
-	"Type": "BacsDirectCreditReturnCreated",
-	"Version": 1,
-	"Payload":
-		{
-			"ReasonCode": "3",
-			"SuspenseAccount": {
-			 	"AccountName": "CustomerBank",
-				"SortCode": "001100",
-				"AccountNumber": "99119911"
-			},
-			"BeneficiaryDetails": {
-			 	"AccountName": "Jane Doe",
-			 	"SortCode": "445566",
-			 	"AccountNumber": "87654321"
-			},
-			"ServiceUser": {
-			    "AccountName": "UK Telecomms",
-			 	"SortCode": "778899",
-			 	"AccountNumber": "12121212"
-		    },
-		    "Reference": "V6SQDHD1J3ZJUL2018",
-		    "Amount": 25.50,
-		    "TransactionCode": "99"
-		}
-	"Nonce": 986495725
+    "Type": "BacsDirectCreditReturnCreated",
+    "Version": 4,
+    "Payload":
+       {
+          "SuspenseAccount":
+            {
+            "AccountNumber": "99119911"
+            "SortCode": "001100",
+            "AccountName": "CustomerBank",
+            },
+          "BeneficiaryDetails":
+            {
+            "AccountNumber": "87654321"
+            "SortCode": "445566",
+            "AccountName": "Jane Doe",
+            },
+          "ServiceUserInformation":
+            {
+            "AccountNumber": "12121212"
+            "SortCode": "778899",
+            "AccountName": "UK Telecomms",
+            },
+          "ReasonCode": "3",
+          "Reference": "JADA157QWNOV2018",
+          "Amount": 25.50,
+          "TransactionCode": "99",
+          "Source": "Bacs",
+          "BacsTransactionId": "b6bb16f4-a907-1ed8-8e1b-4e18efb1d82f"
+          "OriginalBacsTransactionId:" "d61b2513-f586-43da-8b72-4f6ba2e28fea",
+          "OriginalBacsTransactionSun:" "012345"
+          }
+    "Nonce": 329599533
 }
 ```
 #### Example webhook response
 
 ```json
 {
-    "Nonce": 986495725
+    "Nonce": 329599533
 }
 ```

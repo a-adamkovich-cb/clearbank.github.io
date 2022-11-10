@@ -36,26 +36,28 @@ webhook: true
 
 ```json
 {
-      "Type": "BacsDirectCreditInboundPaymentCreated",
-      "Version": 2,
-      "Payload": {
-        "ServiceUserInformation": {
-          "AccountName": "CLIENTMONEY",
-          "SortCode": "040400",
-          "AccountNumber": "00003179"
-               },
-        "BeneficiaryDetails": {
-          "AccountName": "BACSACCOUNT",
-          "SortCode": "787899",
-          "AccountNumber": "00000331"
-          },
-        "Reference": "VIR-WASPAPERTWO",
-        "Amount": 1.16,
-        "ProcessingDate": "2018-12-30T00:00:00Z",
-        "TransactionCode": "99",
-        "ServiceUserNumber": "223556",
-        },
-      "Nonce": 329599531
+     "Type": "BacsDirectCreditInboundPaymentCreated",
+     "Version": 2,
+       "Payload": {
+           "ServiceUserInformation": {
+             "AccountName": "CLIENTMONEY", 
+             "SortCode": "040400",
+             "AccountNumber": "00003179"
+             },
+           "BeneficiaryDetails": {
+             "AccountName": "BACSACCOUNT",
+             "SortCode": "787899",
+             "AccountNumber": "00000331"
+             },
+          "Reference": "VIR-WASPAPERTWO",
+          "Amount": 1.16,
+          "ProcessingDate": "2018-12-30T00:00:00Z",
+          "TransactionCode": "99",
+          "ServiceUserNumber": "223556",
+          "Source": "Bacs"
+          "BacsTransactionId": "74134b3e-3ef6-c9de-23cb-08c945acf200"
+                 },
+       "Nonce": 329599531
 }
 ```
 #### Example webhook response
