@@ -33,6 +33,7 @@ import WebhookSummary from 'src/components/webhook-summary'
     'bacs-mandate-return-failed-webhook-v1',
     'bacs-mandate-returned-webhook-v1',
     'bacs-mandate-cancellation-failed-webhook-v1',
+    'bacs-mandate-initiation-failed-webhook-v1',
     'payment-message-validation-failed-webhook-v1',
     'transaction-rejected-v2'
   ]}
@@ -59,6 +60,7 @@ import WebhookSummary from 'src/components/webhook-summary'
 <WebhookPlaceholder render='bacs-mandate-return-failed-webhook-v1' />
 <WebhookPlaceholder render='bacs-mandate-returned-webhook-v1' />
 <WebhookPlaceholder render='bacs-mandate-cancellation-failed-webhook-v1' />
+<WebhookPlaceholder render='bacs-mandate-initiation-failed-webhook-v1' />
 <WebhookPlaceholder render='transaction-rejected-v2' />
 
 You may occasionally receive multiple webhooks with the same `EndtoEndTransactionId`. In this instance, a duplicate check should take place using the `TransactionId`.
