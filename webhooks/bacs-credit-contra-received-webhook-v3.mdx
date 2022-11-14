@@ -20,41 +20,46 @@ webhook: true
 #### Payload
 | Element                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Service User Information`                      |Bacs Service User.<br />Type: `string` or `null`<br/><br />`BacsAccountIdentifier`:<br /><br />`AccountName`<br />        type: `string`or `null`<br />        Max. Length: `128`<br />        Min. Length: `0`<br /><br />`SortCode`<br />        type: `string` or `null`<br />        Max. Length: `6`<br />        Min. Length: `0`<br /> <br /> `AccountNumber`<br />        Type: `string` or `null`<br />        Max. Length: `8`<br />        Min. Length: `0`<br />        <br /><br />  
-| `BeneficiaryDetails`                      |Details of where the payment is being applied.<br />Type: `string` or `null`<br/><br />`BacsAccountIdentifier`:<br /><br />`AccountName`<br />        type: `string`or `null`<br />        Max. Length: `128`<br />        Min. Length: `0`<br /><br />`SortCode`<br />        type: `string` or `null`<br />        Max. Length: `6`<br />        Min. Length: `0`<br /> <br /> `AccountNumber`<br />        Type: `string` or `null`<br />        Max. Length: `8`<br />        Min. Length: `0`<br />        <br /><br />   
-| `Reference`                      |Bacs Payment Transaction Reference. <br />Type: `string` or `null`<br/>Max. Length: `35`	<br/>Min. Length: `0`<br/>Pattern: `^([A-Z]*[a-z]*[0-9]*\.*\&*\/*-*\s*)*$`<br /><br />   
-| `Amount`            |Transaction Amount.<br /> Type: `Number`<br/>Format: `Decimal`<br /><br />
-| `ProcessingDate`       |Processing Date.<br/>Type: `string` <br/>Format: `date-time`<br/><br />
-| `TransactionCode`            |Transaction Code.<br /> Type: `string` or `null`<br/>Max. Length: `2`<br/>Min. Length: `0`<br /> Pattern: `(01¦17¦18¦19)$`<br /> <br/> 
-| `Status`                      |Status\r\n- Pending\r\n- Processed\r\n- Returned\r\n- Recalled (Payer has recalled a transaction so has not been applied to the beneficiary account)\r\n- ContraNotReceived (A transaction is unable to settle as a contra has not been received).<br /><br />`BacsTransactionStatusType`:<br /><br />One of `Pending`, `Processsed`, `Returned`, `Recalled`, `ContraNotReceived`. <br /> Type: `string` <br /><br />
-                                                         | `Source` |Origination of the endpoint.<br /><br />`BacsEventSource`:<br /><br />One of `Undefined`, `Portal`, `Api`, `ClearBank`, `Bacs`. <br /> Type: `string` <br /><br />                                             
-| `BacsTransactionId`             |Bacs Transaction Id.<br />Type: `string`<br />Format: `GUID`<br/>Max. Length: `36`<br/>Min. Length: `0`<br/>  <br />      
+| `ServiceUserInformation`                      |Bacs Service User.<br />Type: `string` or `null`<br /><br />`BacsAccountIdentifier`:<br /><br />`AccountName`<br />        Type: `string` or `null`<br />        Max. Length: `128`<br />        Min. Length: `0`<br /><br />`SortCode`<br />        Type: `string` or `null`<br />        Max. Length: `6`<br />        Min. Length: `0`<br /> <br /> `AccountNumber`<br />        Type: `string` or `null`<br />        Max. Length: `8`<br />        Min. Length: `0`<br />        <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+| `BeneficiaryDetails`                      |Details of where the payment is being applied.<br />Type: `string` or `null`<br /><br />`BacsAccountIdentifier`:<br /><br />`AccountName`<br />        Type: `string` or `null`<br />        Max. Length: `128`<br />        Min. Length: `0`<br /><br />`SortCode`<br />        Type: `string` or `null`<br />        Max. Length: `6`<br />        Min. Length: `0`<br /> <br /> `AccountNumber`<br />        Type: `string` or `null`<br />        Max. Length: `8`<br />        Min. Length: `0`<br />        <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| `Reference`                      |Bacs Payment Transaction Reference. <br />Type: `string` or `null`<br />Max. Length: `35`	<br />Min. Length: `0`<br />Pattern: `^([A-Z]*[a-z]*[0-9]*\.*\&*\/*-*\s*)*$`<br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| `Amount`            |Transaction Amount.<br /> Type: `number`<br />Format: `decimal`<br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+| `ProcessingDate`       |Processing Date.<br />Type: `string` <br />Format: `date-time`<br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+| `TransactionCode`            |Transaction Code.<br /> Type: `string` or `null`<br />Max. Length: `2`<br />Min. Length: `0`<br /> Pattern: `(01¦17¦18¦19)$`<br /> <br />                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+| `Status`                      |Status\r\n- Pending\r\n- Processed\r\n- Returned\r\n- Recalled (Payer has recalled a transaction so has not been applied to the beneficiary account)\r\n- ContraNotReceived (A transaction is unable to settle as a contra has not been received).<br /><br />`BacsTransactionStatusType`:<br /><br />One of `Pending`, `Processsed`, `Returned`, `Recalled`, `ContraNotReceived`. <br /> Type: `string` <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+| `Source` |Origination of the endpoint.<br /><br />`BacsEventSource`:<br /><br />One of `Undefined`, `Portal`, `Api`, `ClearBank`, `Bacs`. <br /> Type: `string` <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+| `BacsTransactionId`             |Bacs Transaction Id.<br />Type: `string`<br />Format: `GUID`<br/>Max. Length: `36`<br/>Min. Length: `0`<br />  <br />      
                                                                                                                                                                                                                                           |
 
 #### Example Bacs Credit Contra Received webhook request body
 
 ```json
 {
- "Type": "BacsCreditContraReceived",
- "Version": 1,
- "Payload": {
-   "ServiceUserInformation": {
-	  "AccountName": "UK Telecomms",
-	  "SortCode": "778899",
-	  "AccountNumber": "12121212"
-    },
-   "BeneficiaryDetails": {
-      "AccountName": "Jane Doe",
-      "SortCode": "445566",
-      "AccountNumber": "87654321"
-    },
-   "Reference": "JADA157QWNOV2018",
-   "Amount": 25.50,
-   "ProcessingDate": "2018-11-01T00:00:00Z",
-   "TransactionCode": "17",
-   "Status": "Processed"
- },
-   "Nonce": 2034827781
+  "Type": "BacsCreditContraReceived",
+  "Version": 3,
+  "Payload":
+     {
+       "ServiceUserInformation":
+       {
+            "AccountName": "UK Telecomms",
+            "SortCode": "778899",
+            "AccountNumber": "12121212"
+       },
+       "BeneficiaryDetails":
+       {
+            "AccountName": "Jane Doe",
+            "SortCode": "445566",
+            "AccountNumber": "87654321"
+       },
+      "Reference": "JADA157QWNOV2018",
+      "Amount": 25.50,
+      "ProcessingDate": "2019-04-01T00:00:00Z",
+      "TransactionCode": "17",
+      "Status": "Processed",
+      "Source": "Bacs",
+      "BacsTransactionId": "0cf25a7b-4c55-3452-d623-d22acc48320e"
+     },
+  "Nonce": 2034827781
 }
 ```
 #### Example webhook response
