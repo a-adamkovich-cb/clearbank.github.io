@@ -11,7 +11,7 @@ webhook: true
 ```json
 {
     "Type": "BacsDebitContraReceivedV3",
-    "Version": 3.0,
+    "Version": 3,
     "Payload": {...},
     "Nonce":
 }
@@ -26,7 +26,7 @@ webhook: true
 | `Amount`            |Transaction Amount.<br /> Type: `number`<br/>Format: `decimal`<br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 | `ProcessingDate`       |Processing Date.<br/>Type: `string` <br/>Format: `date-time`<br/><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 | `TransactionCode`            |Transaction Code.<br /> Type: `string` or `null`<br/>Max. Length: `2`<br/>Min. Length: `0`<br /> Pattern: `(99¦Z4¦Z5¦86)`<br /> <br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-| `Status`                      |Status\r\n- Pending\r\n- Processed\r\n- Returned\r\n- Recalled (Payer has recalled a transaction so has not been applied to the beneficiary account)\r\n- ContraNotReceived (A transaction is unable to settle as a contra has not been received).<br /><br />`BacsTransactionStatusType`:<br /><br />One of `Pending`, `Processsed`, `Returned`, `Recalled`, `ContraNotReceived`. <br /> Type: `string` <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+| `Status`                      |Possible states:<br/>- Pending<br/>-Processed<br/>- Returned<br/>-Recalled (Payer has recalled a transaction so has not been applied to the beneficiary account)<br/>- ContraNotReceived (A transaction is unable to settle as a contra has not been received).<br /><br />`BacsTransactionStatusType`:<br /><br />One of `Pending`, `Processsed`, `Returned`, `Recalled`, `ContraNotReceived`. <br /> Type: `string` <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 | `Source` |Origination of the endpoint.<br /><br />`BacsEventSource`:<br /><br />One of `Undefined`, `Portal`, `Api`, `ClearBank`, `Bacs`. <br /> Type: `string` <br /><br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 | `BacsTransactionId`             |Bacs Transaction Id.<br />Type: `string`<br />Format: `GUID`<br/>Max. Length: `36`<br/>Min. Length: `0`<br/>  <br />      
                                                                                                                                                                                                                                           |
@@ -44,28 +44,27 @@ webhook: true
             "AccountName": "Jane Doe",
             "SortCode": "445566",
             "AccountNumber": "87654321"
-               },
-             "OriginatorInformation":
-                  {
-                     "AccountName": "UK Telecomms",
-                     "SortCode": "778899",
-                     "AccountNumber": "12121212"
-                             },
-                 "Reference": "JADA157QWNOV2018",
-                 "Amount": 25.50,
-                 "ProcessingDate": "2019-04-01T00:00:00Z",
-                 "TransactionCode": "99",
-                 "Status": "Processed",
-                 "Source": "Bacs",
-                 "BacsTransactionId": "daebbeef-4adc-069e-5e9b-79646d893331"
-                      },
-           "Nonce": 1579417909
+        },
+     "OriginatorInformation":
+        {
+            "AccountName": "UK Telecomms",
+            "SortCode": "778899",
+            "AccountNumber": "12121212"
+        },
+     "Reference": "JADA157QWNOV2018",
+     "Amount": 25.50,
+     "ProcessingDate": "2019-04-01T00:00:00Z",
+     "TransactionCode": "99",
+     "Status": "Processed",
+     "Source": "Bacs",
+    },
+   "Nonce": 1579417909
 }
 ```
 #### Example webhook response
 
 ```json
 {
-    "Nonce": 1579417909
+   "Nonce": 1579417909
 }
 ```
