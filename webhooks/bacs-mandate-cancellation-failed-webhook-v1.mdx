@@ -6,6 +6,12 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction cancellation has failed.**
 
+This webhook is raised when ClearBank cannot match a cancellation
+instruction to an active DDI. This can be because the instruction has
+already been cancelled by a customer through the DELETE Mandates API
+endpoint, or because the original DDI was incorrectly set up.
+
+
 #### Request body
 
 ```json

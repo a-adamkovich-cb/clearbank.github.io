@@ -6,12 +6,20 @@ webhook: true
 
 **This sends a webhook notification confirming a Bacs Unpaid Direct Debit has been received.**
 
+The direct debit originator receives notification that a direct debit
+could not be paid from an account. Hence, the money needs to be
+returned.
+
+This webhook arrives on day 4 or 5 in relation to the original direct
+debit, and is settled on the following working day.
+
+
 #### Request body
 
 ```json
 {
     "Type": "BacsUnpaidDirectDebitReceivedV3",
-    "Version": 3,
+    "Version": 3,                                                         
     "Payload": {...},
     "Nonce":
 }

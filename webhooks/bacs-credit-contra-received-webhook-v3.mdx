@@ -6,6 +6,27 @@ webhook: true
 
 **This sends a webhook notification confirming a Bacs Credit Contra has been received.**
 
+
+Not in use, because ClearBank does not currently sponsor submission of
+direct credits. Since ClearBank does not submit credits, this webhook is
+not generated. It exists for potential future expansion.
+
+A contra is a notification to the account opposite the destination
+account of a transaction.
+
+-   A credit contra is the debit notification to the payer account
+
+-   A debit contra is the credit notification to the payee account
+
+For example, a bulk submission file of payroll payments is sent to Bacs.
+The file contains 100 payroll entries of £1000 each. The payer's account
+receives a contra notification, with a value of £1m, informing them that
+their account has been debited with the total amount of the payroll
+credits.
+
+The contra arrives on Day 2, and a transaction-settled webhook arrives
+on day 3.
+
 #### Request body
 
 ```json

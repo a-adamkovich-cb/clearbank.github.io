@@ -4,7 +4,17 @@ version: 2
 webhook: true
 ---
 
-**This sends a webhook notification confirming that a Bacs Direct Debit inbound payment has been created .**
+**This sends a webhook notification confirming that a Bacs Direct Debit inbound payment has been created. **
+
+On receipt of a direct debit request from a customer bank or its
+business, this webhook notifies that the debit will be paid out of its
+account on the following day.
+
+The bank can use this to inform the debit account holder to expect the
+debit, and ensure that there are sufficient funds to cover it. If they
+want to oppose the debit, they should contact ClearBank.
+
+
 
 #### Request body
 

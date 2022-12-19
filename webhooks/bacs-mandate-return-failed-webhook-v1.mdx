@@ -6,6 +6,12 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction Return has failed.**
 
+This webhook indicates that the API endpoint `POST BacsMandateReturned`
+was called, but ClearBank could not match the data with any active DDI.
+The request could not be fulfilled because there was no basis on which
+to enact it. It is returned on the day of the request.
+
+
 #### Request body
 
 ```json

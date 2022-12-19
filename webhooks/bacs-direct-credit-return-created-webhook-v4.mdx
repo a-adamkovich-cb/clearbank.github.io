@@ -6,6 +6,20 @@ webhook: true
 
 **This sends a webhook notification confirming a Bacs Direct Credit return has been created.**
 
+This webhook is the notification that a credit is being returned.
+
+A return is a payment that cannot be applied to the payee account.
+Possible reasons are:
+
+-   the account is non-existent, closed, or not accepting credits
+
+-   the customer has revoked the credit using the API before 4pm on the
+    processing day
+
+The reason for the return is provided as a one-digit code in the
+`ReasonCode` field of the webhook.
+
+
 #### Request body
 
 ```json

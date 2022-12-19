@@ -6,6 +6,17 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs debit payment was not settled.**
 
+If a direct debit cannot be applied (for example, due to insufficient
+funds or a non-existent account), it is returned through the Automated
+Return of Unpaid Direct Debits Service (ARUDD).
+
+If a debit payment is returned, but the ARUDD report contains no
+matching contra, the return cannot settle.
+
+This webhook is sent on the day of settlement. This can be day 3, but if
+a transaction is resubmitted, it can also be day 5.
+
+
 #### Request body
 
 ```json

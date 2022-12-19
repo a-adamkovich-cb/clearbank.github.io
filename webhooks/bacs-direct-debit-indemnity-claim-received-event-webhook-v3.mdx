@@ -6,6 +6,14 @@ webhook: true
 
 **This sends a webhook notification confirming an Indemnity Claim Received event.**
 
+An indemnity claim is raised when the paying bank thinks the service
+user bank has made a mistake.
+
+This webhook notifies the party collecting the debit that the claim has
+been raised. It is sent the day before the indemnity claim itself is
+settled.
+
+
 #### Request body
 
 ```json

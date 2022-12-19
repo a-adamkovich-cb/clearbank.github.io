@@ -6,6 +6,18 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction has been cancelled.**
 
+A DDI that matches an existing active instruction was cancelled by a
+customer through the Web Portal or API, or by the service user through
+Bacs.
+
+* If cancelled through the DELETE Mandates API endpoint, this webhook is
+sent as soon as the cancellation is received.
+
+* If cancelled by a service user through Bacs and AUDDIS, this webhook is
+sent on Day 2.
+
+
+
 #### Request body
 
 ```json

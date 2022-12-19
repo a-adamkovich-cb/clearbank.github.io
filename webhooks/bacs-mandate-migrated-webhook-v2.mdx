@@ -6,6 +6,12 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction has been migrated.**
 
+A service user has converted a paper instruction to AUDDIS. This means
+that the service user no longer wishes to post paper instructions and
+henceforth wants to send instructions through Bacs. Existing
+instructions must be converted before any new ones can be sent through
+Bacs, so a migration is undertaken.
+
 #### Request body
 
 ```json

@@ -6,6 +6,13 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Credit inbound payment has been held.**
 
+Before a credit is settled, it undergoes regulatory screening against
+sanctions lists, or for key risk indicators. If there is anything
+suspicious, it is held for review, and this webhook is returned. It is
+normally followed by the ***transaction-settled*** webhook when the
+payment is released.
+
+
 #### Request body
 
 ```json

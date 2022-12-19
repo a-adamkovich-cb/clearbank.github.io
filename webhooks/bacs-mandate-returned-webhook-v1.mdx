@@ -6,6 +6,18 @@ webhook: true
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction has been returned.**
 
+**Note**: A DDI can only be returned before any payments from it have
+been processed.
+
+Return instructions can be made
+
+-   by a payer through the API. For example, they signed a DDI but
+    changed their mind
+
+-   through Bacs because the Bank does not want the instruction. For
+    example, the account is closed or non-existent
+
+
 #### Request body
 
 ```json
