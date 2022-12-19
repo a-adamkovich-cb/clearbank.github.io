@@ -1,65 +1,51 @@
 ---
-title: "Bacs"
+title: "Bacs payments"
 order: 10
 ---
 
 import WebhookPlaceholder from 'src/components/webhook-placeholder'
 import WebhookSummary from 'src/components/webhook-summary'
 
-## Bacs
+## Bacs payments
+An overview of how Bacs payments are handled by the ClearBank API (including message flows) is shown in the [Bacs](./content/payments/bacs-inbound-direct-debit) endpoints section.
 
-<WebhookSummary
-  description='Initiate a payment'
-  endpoint='/payments/#initiate-a-payment'
-  method='post'
-  webhooks={[
-    'transaction-settled-webhook-v6',
-    'bacs-direct-credit-return-created-webhook-v4',
-    'bacs-direct-debit-return-created-webhook-v4',
-    'bacs-credit-contra-received-webhook-v3',
-    'bacs-debit-contra-received-webhook-v3',
-    'bacs-unpaid-direct-debit-received-webhook-v3',
-    'bacs-debit-payment-not-settled-webhook-v3',
-    'bacs-direct-debit-indemnity-claim-received-event-webhook-v3',
-    'bacs-unapplied-credit-received-webhook-v3',
-    'bacs-direct-credit-inbound-payment-held-webhook-v3',
-    'bacs-credit-payment-not-settled-webhook-v3',
-    'bacs-direct-debit-inbound-payment-created-webhook-v2',
-    'bacs-direct-credit-inbound-payment-created-webhook-v2',
-    'bacs-mandate-cancelled-webhook-v2',
-    'bacs-mandate-migrated-webhook-v2',
-    'bacs-mandate-initiated-webhook-v2',
-    'bacs-direct-credit-recalled-webhook-v1',
-    'bacs-mandate-return-failed-webhook-v1',
-    'bacs-mandate-returned-webhook-v1',
-    'bacs-mandate-cancellation-failed-webhook-v1',
-    'bacs-mandate-initiation-failed-webhook-v1',
-  ]}
-/>
 
-<WebhookPlaceholder render='transaction-settled-webhook-v6' />
-<WebhookPlaceholder render='bacs-direct-credit-return-created-webhook-v4' />
-<WebhookPlaceholder render='bacs-direct-debit-return-created-webhook-v4' />
-<WebhookPlaceholder render='bacs-credit-contra-received-webhook-v3' />
-<WebhookPlaceholder render='bacs-debit-contra-received-webhook-v3' />
-<WebhookPlaceholder render='bacs-unpaid-direct-debit-received-webhook-v3' />
-<WebhookPlaceholder render='bacs-debit-payment-not-settled-webhook-v3' />
-<WebhookPlaceholder render='bacs-direct-debit-indemnity-claim-received-event-webhook-v3' />
-<WebhookPlaceholder render='bacs-unapplied-credit-received-webhook-v3' />
-<WebhookPlaceholder render='bacs-direct-credit-inbound-payment-held-webhook-v3' />
-<WebhookPlaceholder render='bacs-credit-payment-not-settled-webhook-v3' />
-<WebhookPlaceholder render='bacs-direct-debit-inbound-payment-created-webhook-v2' />
-<WebhookPlaceholder render='bacs-direct-credit-inbound-payment-created-webhook-v2' />
-<WebhookPlaceholder render='bacs-mandate-cancelled-webhook-v2' />
-<WebhookPlaceholder render='bacs-mandate-migrated-webhook-v2' />
-<WebhookPlaceholder render='bacs-mandate-initiated-webhook-v2' />
-<WebhookPlaceholder render='bacs-direct-credit-recalled-webhook-v1' />
-<WebhookPlaceholder render='bacs-mandate-return-failed-webhook-v1' />
-<WebhookPlaceholder render='bacs-mandate-returned-webhook-v1' />
-<WebhookPlaceholder render='bacs-mandate-cancellation-failed-webhook-v1' />
-<WebhookPlaceholder render='bacs-mandate-initiation-failed-webhook-v1' />
+### Direct Credits
+
+ClearBank does not sponsor Direct Credits, so there are no outbound Direct Credit payments. The webhooks relating to inbound Direct Credit transactions are not associated with an endpoint, instead they are listed here:
+
+- [Bacs Direct Credit Inbound Payment Created webhook](#bacs-direct-credit-inbound-payment-created-webhook)    
+- [Transaction Settled webhook](#transaction-settled-webhook)
+- [Bacs Direct Credit Inbound Payment Held webhook](#bacs-direct-credit-inbound-payment-held-webhook)
+- [Bacs Credit Payment Not Settled webhook](bacs-credit-payment-not-settled-webhook)
+- [Bacs Direct Credit Recalled webhook](#bacs-direct-credit-recalled-webhook)
+- [Bacs Direct Credit Return Created webhook](bacs-direct-credit-return-created-webhook)
+
+### Direct Debits
+
+The webhooks that relate to inbound Direct Debit payments also have no direct association with an endpoint:
+
+- [Bacs Direct Debit Inbound Payment Created webhook](bacs-direct-debit-inbound-payment-created-webhook)
+- [Bacs Direct Debit Indemnity Claim Received Event webhook](bacs-direct-debit-indemnity-claim-received-event-webhook)
+- [Transaction Settled webhook](#transaction-settled-webhook)
+- [Bacs Direct Debit Return Created webhook](bacs-direct-debit-return-created-webhook)
+- [Bacs Debit Payment Not Settled webhook](bacs-debit-payment-not-settled-webhook)
+
+These two webhooks relate to Direct Debit payments as they appear in the **originator's account**:
+- [Bacs Debit Contra Received webhook](bacs-debit-contra-received-webhook) - indicates funds received as a result of a Direct Debit payment.
+- [Unpaid Direct Debit Received webhook](unpaid-direct-debit-received-webhook) - indicates that a Direct Debit could not be paid.
 
 You may occasionally receive multiple webhooks with the same `EndtoEndTransactionId`. In this instance, a duplicate check should take place using the `TransactionId`.
 If the same `TransactionId` is used for both payments, the webhook will be a duplicate. In case the TransactionId(s) are different, these will relate to separate transactions.
 
-A full list of webhook documentation is available on ClearBank®'s Knowledge Centre and access can be granted as part of your onboarding journey. Please reach out to your main contact ClearBank® for more information. 
+<WebhookPlaceholder render='bacs-direct-credit-inbound-payment-created-webhook-v2' />
+<WebhookPlaceholder render='bacs-direct-credit-inbound-payment-held-webhook-v3' />
+<WebhookPlaceholder render='bacs-credit-payment-not-settled-webhook-v3' />
+<WebhookPlaceholder render='bacs-direct-credit-recalled-webhook-v1' />
+<WebhookPlaceholder render='bacs-direct-credit-return-created-webhook-v4' />
+<WebhookPlaceholder render='bacs-direct-debit-inbound-payment-created-webhook-v2' />
+<WebhookPlaceholder render='bacs-direct-debit-indemnity-claim-received-event-webhook-v3' />
+<WebhookPlaceholder render='bacs-direct-debit-return-created-webhook-v4' />
+<WebhookPlaceholder render='bacs-debit-payment-not-settled-webhook-v3' />
+<WebhookPlaceholder render='bacs-debit-contra-received-webhook-v3' />
+<WebhookPlaceholder render='bacs-unpaid-direct-debit-received-webhook-v3' />
