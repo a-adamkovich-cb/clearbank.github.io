@@ -6,6 +6,17 @@ webhook: true
 
 **This sends a webhook notification that a Bacs Credit Payment has not been settled.**
 
+Credits that could not be applied (for example, because the beneficiary
+is deceased, or the account does not exist) are returned through the
+Automated Return of Unapplied Credits Service (ARUCS). The ARUCS file
+contains a credit contra, which is output to ClearBank to clear the
+returned payments.
+
+If, however, the returns file is not accepted by Bacs, the return does
+not settle, and this webhook is sent on the day of settlement. This can
+be day 3, but if a transaction is resubmitted, it can also be day 5.
+
+
 #### Request body
 
 ```json

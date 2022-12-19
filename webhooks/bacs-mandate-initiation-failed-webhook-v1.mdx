@@ -5,6 +5,14 @@ webhook: true
 ---
 
 **This sends a webhook notification confirming that a Bacs Direct Debit Instruction initiation has failed.**
+DDI has been received from Bacs, but could not be applied.
+
+The reason for the fail is provided as a one-character code in the
+`ReasonCode` field of the webhook. Possible reasons are that the account
+is non-existent, closed, not accepting debits, or that ClearBank
+previously returned the debit because it was cancelled by the paying
+bank.
+
 
 #### Request body
 

@@ -6,6 +6,15 @@ webhook: true
 
 **This sends a webhook notification confirming a Bacs Direct Credit has been recalled.**
 
+A credit payment has been recalled, and will not be settled on the entry
+day.
+
+ClearBank receives an ***inbound-credit-created*** webhook, but then
+gets a recall request from the remitting bank before 4pm on the
+processing day. When the recall is processed, the payment is settled to
+a suspense account, and then returned to the remitting bank.
+
+
 #### Request body
 
 ```json

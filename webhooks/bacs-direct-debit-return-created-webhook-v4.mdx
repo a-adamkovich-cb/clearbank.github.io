@@ -6,6 +6,23 @@ webhook: true
 
 **This sends a webhook notification confirming a Bacs Direct Debit return has been created.**
 
+This webhook is the notification that a debit is being returned.
+
+A return is a payment that cannot be applied to the payee account.
+Possible reasons are,
+
+-   the account is non-existent, closed, not accepting debits, or
+    insufficiently provisioned
+
+-   No Direct Debit Instruction for the transaction can be found
+
+-   the customer calls for the return through the transactions/returns
+    endpoint of the API
+
+The reason for the return is provided as a one-digit code in the
+`ReasonCode` field of the webhook.
+
+
 #### Request body
 
 ```json
