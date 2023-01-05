@@ -16,7 +16,7 @@ When a payment is successfully applied to an account, this message flow occurs:
 
 ![Image showing a successful Bacs payment](/assets/images/BacsOverview-PaymentSuccess.svg "Successful Bacs payment")
 
-If you subscribe to the BacsDirectDebitInbound and BacsDirectCreditInbound webhooks, then you can use the information to notify the account owner of a pending payment scheduled to occur on day 3. You can use the Bacs transaction ID to associate the webhooks that describe each payment. Note that credit payments can be recalled up to 4pm on the processing day by the originator; in this case you will be notified by a BacsDirectCreditRecalled webhook.
+If you subscribe to the BacsDirectDebitInboundPaymentCreated and BacsDirectCreditInboundPaymentCreated webhooks, then you can use the information to notify the account owner of a pending payment scheduled to occur on day 3. You can use the Bacs transaction ID to associate the webhooks that describe each payment. Note that credit payments can be recalled up to 4pm on the processing day by the originator; in this case you will be notified by a BacsDirectCreditRecalled webhook.
 
 Whether a payment is successfully applied to the end-customer's account is determined like this:
 
