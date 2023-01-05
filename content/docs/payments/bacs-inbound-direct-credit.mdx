@@ -16,15 +16,15 @@ When a payment is successfully applied to an account, this message flow occurs:
 
 ![Image showing a successful Bacs payment](/assets/images/BacsOverview-PaymentSuccess.svg "Successful Bacs payment")
 
-If you subscribe to the BacsDirectDebitInbound and BacsDirectCreditInbound webhooks, then you can use the information to notify the account owner of a pending payment scheduled to occur on day 3. You can use the Bacs transaction ID to associate the webhooks that describe each payment. Note that payments can be recalled up to 4pm on the processing day by the originator; in this case you will be notified by a BacsDirectCreditRecalled webhook.
+If you subscribe to the BacsDirectDebitInbound and BacsDirectCreditInbound webhooks, then you can use the information to notify the account owner of a pending payment scheduled to occur on day 3. You can use the Bacs transaction ID to associate the webhooks that describe each payment. Note that credit payments can be recalled up to 4pm on the processing day by the originator; in this case you will be notified by a BacsDirectCreditRecalled webhook.
 
 Whether a payment is successfully applied to the end-customer's account is determined like this:
 
 ![Image showing a Inbound Bacs decision tree](/assets/images/BacsOverview-DecisionTree.svg "Inbound Bacs decision tree")
 
-If the payment cannot be applied to the account, ClearBank will automatically raise an Automated Return of Unapplied Credits Service (ARUCS). 
+If the payment cannot be applied to the account, ClearBank will automatically raise an Automated Return of Unapplied Credits Service (ARUCS) or an Automated Return of Unpaid Direct Debit (ARUDD). 
 
-You can also return a payment that has been applied, for example because of insufficient balance in a virtual account. To do so use the endpoints below and specify the reason for return. ClearBank will notify you with a Bacs Direct Credit Return Created webhook. Returns can only be initiated until 15:30 (UTC) the working day after settlement. The payment will be applied to your Bacs suspense account on the same day and returned on Day 5.
+You can also return a payment that has been applied, for example you might return a Direct Debit because of insufficient balance in a virtual account. To do so use the endpoints below and specify the reason for return. ClearBank will notify you with a Bacs Direct Credit Return Created webhook or a Bacs Direct Debit Return Created webhook on the day the return is created (Day 3 or 4). Returns should be initiated straight away, but can be initiated until 15:30 (UTC) the working day after settlement. The payment will be applied to your Bacs suspense account on the same day and returned on Day 5 or 6.
 
 <EndpointBlock
   type="post"
